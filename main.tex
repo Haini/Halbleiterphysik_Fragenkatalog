@@ -4,13 +4,28 @@
 \usepackage{tabularx}
 \usepackage{graphicx}
 \usepackage{adjustbox}
-\usepackage{hyperref} 
+\usepackage{hyperref}
+\usepackage{etoolbox}
+\usepackage{changepage}
+\usepackage{float}
 
 \title{Halbleiterphysik Fragenkatalog}
 \author{Constantin Schieber\\Benedikt Tutzer}
 \date{August 2020}
 
+%\patchcmd{\subsubsection}{\normalsize}{\normalsize}{\typeout{same line subsec f}}{\typeout{same line subsec failed}}%
+%\patchcmd{\subsubsection}{\bfseries}{}{\typeout{same line subsec f}}{\typeout{same line subsec failed}}%
+
+\newtoggle{aftersection}
+\preto{\section}{\filbreak\global\toggletrue{aftersection}}
+\preto{\subsection}{\iftoggle{aftersection}{\global\togglefalse{aftersection}}{\filbreak}}
+\newcommand{\clearpageafterfirst}{%
+  \gdef\clearpageafterfirst{\clearpage}%
+}
+
+
 \begin{document}
+
 
 \maketitle
 \vfill
@@ -28,69 +43,143 @@ Diese Ausarbeitung ist zur Vorbereitung auf die m\"undliche Pr\"ufung im August 
 %--------------------------------------------------------------------------------
 \section{Overview}
 
-\begin{table}[h]
-
+\begin{center}
+\begin{table}[H]
+%\begin{adjustwidth}{-3cm}{-3cm}
 \begin{adjustbox}{width=\textwidth}
+\centering
 \begin{tabular}{lcccccccc}
 Frage                & 02.16 & 01.28 & 02.19 & 03.04 & 03.05 & 03.21 & 01.16 & Katalog\\
                      & 2010  & 2014  & 2019  & 2019  & 2019  & 2019  & 2020 & \\
                      \hline
-\ref{k1:schrGl} Schrödinger Gleichung&&&& X &  & X & X &  \\
+\ref{k1:photoEf} Photo-Effekt &&&&&&&& X \\
+\ref{k1:comptonEf} Compton-Effekt &&&&&&&& X \\
+\ref{k1:dispersionsrelation} Dispersionsrelation für Halbleiter && X &&& X & X & X & \\
+\ref{k1:schrGl} Schrödinger Gleichung&&&& X &  & X & X & X \\
+\ref{k1:ekdiag} e(k) Diagramm &&&&&&&& X \\
+\ref{k1:pottopf} Unendlich tiefer Potentialtopf &&&&&&&& X \\
 \ref{k1:tunnEf} Tunneleffekt&&&&&&&X & \\
-\ref{k2:festkorper} Grund für Festkörperbildung & X &&&&&&& \\
-\ref{k4:laser} Wie funktionieren Laser & X &&&&&&& \\
-\ref{k4:inUndIndirekt} Direkter und Indirekter Halbleiter&&& X &&&&& \\
-\ref{k5:pn} PN-\"Ubergang && X & X & X &X&X&& \\
+\ref{k2:metalle} Unterschied Halbleiter vs Metalle &&&&&&&& X\\
+\ref{k2:festkorper} Grund für Festkörperbildung & X &&&&&&& X\\
+\ref{k2:leitungsBand} Leitungsband, Valenzband, Ef aufzeichnen && X & X &&&&& \\
+\ref{k2:kroningpenny} Kroning Penny Modell &&&&&&&& X \\
+\ref{k2:entstehungHalbleiter} Enstehung der Halbleiter &&&&&&&& X \\
+\ref{k2:phononen} Phononen &&&&&&&& X \\
+\ref{k3:diffusion} Berechnung Diffusionsspannung & X &&&&&&& X \\
+\ref{k3:alleGleichungen} Alle Gleichungen & X &&&&&&& \\
+\ref{k3:dotieren} Dotieren &&&&&&&& X \\
+\ref{k3:ladungstraegerkonz} Verlauf der Ladungstr\"agerkonzentration &&&&&&&& X \\
+\ref{k3:drude} Drude Modell &&&&&&&& X \\
+\ref{k3:halleffekt} Hall-Effekt &&&&&&&& X \\
+\ref{k3:hallspannung} Hall-Spannung &&&&&&&& X \\
+\ref{k3:diffusionsstrom} Diffusionsstrom &&&&&&&& X \\
+\ref{k3:stromgleichungen} Stromgleichungen, J\_n, J\_p &&&&&&&& X \\
+\ref{k3:shockleyhaynes} Shockley-Haynes Experiment &&&&&&&& X \\
+\ref{k3:kontinuitaet} Kontinuit\"atsgleichungen &&&&&&&& X \\
+\ref{k4:laser} Wie funktionieren Laser & X &&&&&&& X\\
+\ref{k4:inUndIndirekt} Direkter und Indirekter Halbleiter&&& X &&&&& X \\
+\ref{k4:zustandsDichte} Zustandsdichte und Besetzungswahrscheinlichkeit && X &&&&& X \\
+\ref{k5:pn} PN-\"Ubergang && X & X & X &X&X&& X \\
+\ref{k5:diode} Diodenkennlinie &&&&&&&& X \\
 \ref{k5:pnBand} Banddiagramm f\"ur PN ohne Spannung  && X &&&&&& \\
-\ref{k5:tunnelDiode} Tunneldiode&&& X && X & X & X & \\
-\ref{k5:tunnelEffekt} Tunneln Allgemein&&&&& X &&& \\
-\ref{k6:bipolar} Funktion von Bipolartransistoren & X &&&&&&& \\
-\ref{k6:mosInversion} MOS-Inversion & X &&&&&&& \\
-\ref{k6:mosInversion} MOS-Struktur(feat Inversion)&&& X &&&&& \\
-\ref{kX:alleGleichungen} Alle Gleichungen & X &&&&&&& \\
-\ref{kX:diffusion} Berechnung Diffusionsspannung & X &&&&&&& \\
-\ref{kX:leitungsBand} Leitungsband, Valenzband, Ef aufzeichnen && X & X &&&&& \\
-\ref{kX:zustandsDichte} Zustandsdichte&& X &&&&& \\
-\ref{kX:dispersionsrelation} Dispersionsrelation für Halbleiter && X &&& X & X & X & \\
+\ref{k5:tunnelDiode} Tunneldiode&&& X && X & X & X & X \\
+\ref{k5:tunnelEffekt} Tunneln Allgemein&&&&& X &&& X\\
+\ref{k5:schottky} Schottky-Kontakt-Diode &&&&&&&& X \\
+\ref{k5:backward} Backward-Diode &&&&&&&& X \\
+\ref{k5:heterostrukturen} Heterostrukturen &&&&&&&& X \\
+\ref{k6:bipolar} Funktion von Bipolartransistoren & X &&&&&&& X \\
+\ref{k6:mosInversion} MOS-Struktur & X && X &&&&& \\
+\ref{k6:diffusionsdreieck} Diffusions-Dreieck beim Transistor &&&&&&&& X \\
+\ref{k6:fet} Feldeffekt-Transistor &&&&&&&& X \\
+\ref{k6:mosfet} MOS-FET &&&&&&&& X \\
+\ref{k6:mesfet} MES-FET &&&&&&&& X \\
+\ref{k6:early} Early-Effekt &&&&&&&& X \\
+\ref{k6:jfet} JFET &&&&&&&& X \\
 
 \hline
 
 \hline
+
 \end{tabular}
 \end{adjustbox}
+%\end{adjustwidth}
+\caption{Mündliche Prüfungsfragen aus diversen Aufzeichnungen der FET.}
 \end{table}
+\end{center}
 
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
 \section{Physikalische Grundlagen - Kapitel 1}
 \subsection{Photo-Effekt}\label{k1:photoEf}
+Austrittsarbeit?
 \subsection{Compton-Effekt}\label{k1:comptonEf}
-\subsection{Dispersionsrelation}\label{kX:dispersionsrelation}
+Mit welchen 2 Gleichungen l\"asst sich der Compton-Effekt erkl\"aren? Energie und Impulserhaltung
+\subsection{Dispersionsrelation}\label{k1:dispersionsrelation}
 \input{fragen/k1-dispersionsRelation}
 
 
 \subsection{Schrödinger Gleichung}\label{k1:schrGl}
 \input{fragen/k1-schrodingerGleichung}
 
-\subsection{Tunnel-Effekt}\label{k1:tunnEf}
-\subsection{Unendlich tiefer Potentialtopf}\label{k1:potentialtopf}
+\subsection{e(k) Diagramm}\label{k1:ekdiag}
 
+\subsection{Unendlich tiefer Potentialtopf}\label{k1:pottopf}
+
+\subsection{Tunnel-Effekt}\label{k1:tunnEf}
 
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
 \section{Periodische Festkörperstrukturen - Kapitel 2}
+\subsection{Unterschied Halbleiter vs Metalle}\label{k2:metalle}
+B\"anderschema aufzeichnen
+
 \subsection{Grund für die Bildung von Festkörpern}\label{k2:festkorper}
-\subsection{Leitungsband, Valenzband, Ef aufzeichnen}\label{kX:leitungsBand}
+Wichtig: Diagramm f\"ur Energie in Abh\"angigkeit der Atomdistanz. Erkl\"arung mit Hilfe der Modellsubstanz H-Atom: was passiert wenn man 2 H-Atome n\"aher bringt?
+
+\subsection{Leitungsband, Valenzband, Ef aufzeichnen}\label{k2:leitungsBand}
+
+\subsection{Kroning Penny Modell}\label{k2:kroningpenny}
+Erkl\"aren, Skizzen, Rechenvorgang, grafische L\"osung, Herleitung e(k) Diagramm
+
+\subsection{Entstehung der Halbleiter}\label{k2:entstehungHalbleiter}
+
+\subsection{Phononen}\label{k2:phononen}
 
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
 \section{Transporteffekte in Halbleitern - Kapitel 3}
 
-\subsection{Berechnung der Diffusionsspannung}\label{kX:diffusion}
-\subsection{Alle Gleichungen (2x Stromgleichung, 2x Kontinuitätsgleichung, 1x Poisson-Gleichung)}\label{kX:alleGleichungen}
+\subsection{Berechnung der Diffusionsspannung}\label{k3:diffusion}
+Feldst\"arke (Poissongleichung) integrieren und die Skizzen von pn-\"Ubergang, elektrischer
+Feldst\"arke und Spannungsverlauf.
+
+\subsection{Alle Gleichungen (2x Stromgleichung, 2x Kontinuitätsgleichung, 1x Poisson-Gleichung)}\label{k3:alleGleichungen}
+
+\subsection{Dotieren}\label{k3:dotieren}
+
+\subsection{Verlauf der Ladungstr\"agerkonzentration als Funktion der Temperatur}\label{k3:ladungstraegerkonz}
+
+\subsection{Drude Modell}\label{k3:drude}
+
+\subsection{Hall-Effekt}\label{k3:halleffekt}
+Metallplatte aufzeichnen mit Koordinatensystem und I, B, und F bzw. E als Vektoren.
+Kurz beschreiben was im p-HL und n-HL passiert.
+Erk\"aren warum der Strom nur in eine Richtung flie{\ss}en kann.
+
+\subsection{Hall-Spannung}\label{k3:hallspannung}
+
+\subsection{Diffusionsstrom}\label{k3:diffusionsstrom}
+
+\subsection{Stromgleichungen}\label{k3:stromgleichungen}
+
+\subsection{Shockley-Haynes Experiment}\label{k3:shockleyhaynes}
+    \subsubsection{Schlatung aufzeichnen} Oszi und Spannungsquelle nicht vergessen
+    \subsubsection{Kurve aufzeichnen und erkl\"aren was abgelesen werden kann}
+
+\subsection{Kontinuit\"atsgleichungen}\label{k3:kontinuitaet}
 
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
@@ -98,9 +187,23 @@ Frage                & 02.16 & 01.28 & 02.19 & 03.04 & 03.05 & 03.21 & 01.16 & K
 \section{Optische Eigenschaften von Halbleitern - Kapitel 4}
 
 \subsection{Laser}\label{k4:laser}
-\subsection{Vergleiche direkte und indirekte Halbleider}\label{k4:inUndIndirekt}
-\subsection{Zustandsdichte}\label{kX:zustandsDichte}
+    \subsubsection{Wie funktionieren HL-Laser?}
+    \subsubsection{E(k) Diagramm}
+    \subsubsection{Inversion}
+    \subsubsection{stimulierte Emission}
+    \subsubsection{Verst\"arkerbedingung}
 
+\subsection{Vergleiche direkte und indirekte Halbleiter}\label{k4:inUndIndirekt}
+    \subsubsection{Wo ist k=0, was bedeutet das?}
+    \subsubsection{w(k) für freies Teilchen}
+    \subsubsection{Bewegt sich ein e- im Ev bei T=0?}
+    \subsubsection{Wo ist die Masse am größten (Ev, Ec)?}
+    \subsubsection{Gleichung für m*}
+
+Banddiagramm, Band\"ubergang
+\subsection{Zustandsdichte und Besetzungswahrscheinlichkeit}\label{k4:zustandsDichte}
+    \subsubsection{Banddiagramme}
+    \subsubsection{Temperaturabh\"angigkeit}
 
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
@@ -108,25 +211,98 @@ Frage                & 02.16 & 01.28 & 02.19 & 03.04 & 03.05 & 03.21 & 01.16 & K
 \section{Halbleiterdioden - Kapitel 5}
 \subsection{PN-Übergang}\label{k5:pn}
 	\subsubsection{aufzeichnen ohne externe Spannung}
-	\subsubsection{Diagramm dazu, wo auf x-Achse Ort (Verlauf von pn Übergang) und auf der y-Achse Dichte der freien Elektronen}
-	(Achtung: Raumladungszone! Auf Größenordnungen achten!)
-	\subsubsection{Größenordnung einschätzen: Abstand von Elektronen, Größe von RLZ (normaler PN Übergang, Tunneldiode), Elektronendichte im HL}
+	%\subsubsection{Diagramm dazu, wo auf x-Achse Ort (Verlauf von pn Übergang) und auf der y-Achse Dichte der freien Elektronen}
+	%(Achtung: Raumladungszone! Auf Größenordnungen achten!)
+	
+	%\subsubsection{Größenordnung einschätzen: Abstand von Elektronen, Größe von RLZ (normaler PN Übergang, Tunneldiode), Elektronendichte im HL}
+	
+	\subsubsection{Skizze Flussrichtung, Sperrichtung, Raumladungszone}
+	\subsubsection{Raumladungszone}
+	\subsubsection{Skalen, logarithmisch, linear, Größenordnung}
+	\subsubsection{Freie Elektronen}
+	\subsubsection{Raumladungszone}
+	\subsubsection{Anzahl}
+	\subsubsection{Dotierung}
+	
+	\subsubsection{Intrinsische Ladungsträgerdichte ni + Gleichung $n*p=ni^2$ }
+	\subsubsection{ni ist Funktion von was? (T und Gap)}
+	
+\subsection{Diodenkennlinie}\label{k5:diode}
+    \subsubsection{Warum exponentiell?}
+    \subsubsection{Verlauf der Kapazit\"at einer Diode als Funktion der Spannung}
+    \subsubsection{Wie sehen die Ladungen bei anlegen einer Spannung aus?}
+    \subsubsection{Massenwirkungsgesetz}
 
 \subsection{Banddiagramm für PN ohne Spannung}\label{k5:pnBand}
 \subsection{Tunneldiode}\label{k5:tunnelDiode}
-	\subsubsection{Banddiagramm ohne externe Spannung}
-	\subsubsection{Tunneleffekt erklären}
-	\subsubsection{was passiert, wenn 25mV in Flussrichtung angelegt werden?}
-	\subsubsection{Kennlinie aufzeichnen}
-	\subsubsection{im Banddiagramm Konstellation aufzeichnen, wo Maximum und Minimum in Kennlinie auftreten}
+    \subsubsection{Banddiagramm ohne externe Spannung}
+    \subsubsection{Tunneleffekt erklären}
+    \subsubsection{was passiert, wenn 25mV in Flussrichtung angelegt werden?}
+    \subsubsection{Kennlinie aufzeichnen}
+    \subsubsection{im Banddiagramm Konstellation aufzeichnen, wo Maximum und Minimum in Kennlinie auftreten}
+    
+    \subsubsection{Skizze Valenzband, Leitungsband, Ferminiveau}
+    \subsubsection{Dicke Raumladungszone Dotierung}
+    \subsubsection{Wann kommt es zum Tunneln}
+    \subsubsection{Wie groß ist die Bandlücke in Volt}
+    \subsubsection{Kennlinie der Tunneldiode}
+    \subsubsection{Kennlinie einer normalen Diode}
+    
+    \subsubsection{Ferminiveau}
+    \subsubsection{Valenzband}
+    \subsubsection{Leitungsband}
+    \subsubsection{Kennlinie}
+    
+    \subsubsection{Leitungsband, Valenzband, Ef aufzeichnen für Tunneldiode}
+
+    \subsubsection{Warum Tunneldiode? Was tunnelt wo?}
+Das ist ein Test
+	
+    \subsubsection{Bedingungen fürs Tunneln und was erhöht die Wahrscheinlichkeit?}
+    \subsubsection{Kennlinie Tunneldiode}
+    \subsubsection{Leitungsband, Valenzband und Ef aufzeichnen bei Umax und Umin}
+	
 \subsection{Tunneleffekt}\label{k5:tunnelEffekt}
+    \subsubsection{Flussspannung}
+    \subsubsection{Energieerhaltung}
+    \subsubsection{Endliche Barriere}
+    \subsubsection{Einfaches Tunneln}
+
+\subsection{Schottky-Kontakt-Diode}\label{k5:schottky}
+
+\subsection{Backward-Diode}\label{k5:backward}
+
+\subsection{Heterostrukturen}\label{k5:heterostrukturen}
+
 
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
 \section{Transistoren - Kapitel 6}
 \subsection{Funktion von Bipolartransistoren}\label{k6:bipolar}
+    \subsubsection{Funktionionsweise}
+    \subsubsection{Skizze}
+    \subsubsection{Warum wird er als Verst\"arker eingesetzt?}
 \subsection{MOS-Inversion}\label{k6:mosInversion}
+
+    \subsubsection{Wann spricht man von Inversion}
+    \subsubsection{Leitungsband, Valenzband, Ef aufzeichnen}
+
+\subsection{Diffusions-Dreieck beim Transistor}\label{k6:diffusionsdreieck}
+    \subsubsection{Warum fast linear?} exponential-Funktion im Ursprung ann\"ahernd linear
+    \subsubsection{Was w\"are wenn die Basisl\"ange gr\"o{\ss}er als die Diffusionsl\"ange w\"are?} Man h\"atte die Wirkung von 2 Dioden und keinen Transistoreffekt mehr.
+
+\subsection{Feldeffekt-Transistor}\label{k6:fet}
+
+\subsection{MOS-FET}\label{k6:mosfet}
+    \subsubsection{Aufbau}
+    \subsubsection{Bandstruktur}
+
+\subsection{MES-FET}\label{k6:mesfet}
+
+\subsection{Early-Effekt}\label{k6:early}
+
+\subsection{JFET}\label{k6:jfet}
 
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------

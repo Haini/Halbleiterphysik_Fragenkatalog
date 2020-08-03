@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{hyperref} 
+
+\title{Halbleiterphysik Fragenkatalog}
+\author{Constantin Schieber\\Benedikt Tutzer}
+\date{August 2020}
+
+\begin{document}
+
+\maketitle
+\vfill
+Diese Ausarbeitung ist zur Vorbereitung auf die m\"undliche Pr\"ufung im August 2020 entstanden. Sie kann gern auf overleaf aktuell gehalten werden.\\
+
+\begin{center}\href{Overleaf public link}{https://www.overleaf.com/4852512811wdbqyxrbkgyb}\end{center}
+
+\setcounter{section}{-1}
+\newpage
+\tableofcontents
+\newpage
+
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+\section{Overview}
+
+\begin{table}[h]
+
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{lcccccccc}
+Frage                & 02.16 & 01.28 & 02.19 & 03.04 & 03.05 & 03.21 & 01.16 & Katalog\\
+                     & 2010  & 2014  & 2019  & 2019  & 2019  & 2019  & 2020 & \\
+                     \hline
+\ref{k1:schrGl} Schrödinger Gleichung&&&& X &  & X & X &  \\
+\ref{k1:tunnEf} Tunneleffekt&&&&&&&X & \\
+\ref{k2:festkorper} Grund für Festkörperbildung & X &&&&&&& \\
+\ref{k4:laser} Wie funktionieren Laser & X &&&&&&& \\
+\ref{k4:inUndIndirekt} Direkter und Indirekter Halbleiter&&& X &&&&& \\
+\ref{k5:pn} PN-\"Ubergang && X & X & X &X&X&& \\
+\ref{k5:pnBand} Banddiagramm f\"ur PN ohne Spannung  && X &&&&&& \\
+\ref{k5:tunnelDiode} Tunneldiode&&& X && X & X & X & \\
+\ref{k5:tunnelEffekt} Tunneln Allgemein&&&&& X &&& \\
+\ref{k6:bipolar} Funktion von Bipolartransistoren & X &&&&&&& \\
+\ref{k6:mosInversion} MOS-Inversion & X &&&&&&& \\
+\ref{k6:mosInversion} MOS-Struktur(feat Inversion)&&& X &&&&& \\
+\ref{kX:alleGleichungen} Alle Gleichungen & X &&&&&&& \\
+\ref{kX:diffusion} Berechnung Diffusionsspannung & X &&&&&&& \\
+\ref{kX:leitungsBand} Leitungsband, Valenzband, Ef aufzeichnen && X & X &&&&& \\
+\ref{kX:zustandsDichte} Zustandsdichte&& X &&&&& \\
+\ref{kX:dispersionsrelation} Dispersionsrelation für Halbleiter && X &&& X & X & X & \\
+\hline
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+\section{Physikalische Grundlagen - Kapitel 1}
+\subsection{Photo-Effekt}\label{k1:photoEf}
+\subsection{Compton-Effekt}\label{k1:comptonEf}
+\subsection{Dispersionsrelation}\label{kX:dispersionsrelation}
+\input{fragen/k1-dispersionsRelation}
+
+
+\subsection{Schrödinger Gleichung}\label{k1:schrGl}
+\input{fragen/k1-schrodingerGleichung}
+
+\subsection{Tunnel-Effekt}\label{k1:tunnEf}
+\subsection{Unendlich tiefer Potentialtopf}\label{k1:potentialtopf}
+
+
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+\section{Periodische Festkörperstrukturen - Kapitel 2}
+\subsection{Grund für die Bildung von Festkörpern}\label{k2:festkorper}
+\subsection{Leitungsband, Valenzband, Ef aufzeichnen}\label{kX:leitungsBand}
+
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+\section{Transporteffekte in Halbleitern - Kapitel 3}
+
+\subsection{Berechnung der Diffusionsspannung}\label{kX:diffusion}
+\subsection{Alle Gleichungen (2x Stromgleichung, 2x Kontinuitätsgleichung, 1x Poisson-Gleichung)}\label{kX:alleGleichungen}
+
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+\section{Optische Eigenschaften von Halbleitern - Kapitel 4}
+
+\subsection{Laser}\label{k4:laser}
+\subsection{Vergleiche direkte und indirekte Halbleider}\label{k4:inUndIndirekt}
+\subsection{Zustandsdichte}\label{kX:zustandsDichte}
+
+
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+\section{Halbleiterdioden - Kapitel 5}
+\subsection{PN-Übergang}\label{k5:pn}
+	\subsubsection{aufzeichnen ohne externe Spannung}
+	\subsubsection{Diagramm dazu, wo auf x-Achse Ort (Verlauf von pn Übergang) und auf der y-Achse Dichte der freien Elektronen}
+	(Achtung: Raumladungszone! Auf Größenordnungen achten!)
+	\subsubsection{Größenordnung einschätzen: Abstand von Elektronen, Größe von RLZ (normaler PN Übergang, Tunneldiode), Elektronendichte im HL}
+
+\subsection{Banddiagramm für PN ohne Spannung}\label{k5:pnBand}
+\subsection{Tunneldiode}\label{k5:tunnelDiode}
+	\subsubsection{Banddiagramm ohne externe Spannung}
+	\subsubsection{Tunneleffekt erklären}
+	\subsubsection{was passiert, wenn 25mV in Flussrichtung angelegt werden?}
+	\subsubsection{Kennlinie aufzeichnen}
+	\subsubsection{im Banddiagramm Konstellation aufzeichnen, wo Maximum und Minimum in Kennlinie auftreten}
+\subsection{Tunneleffekt}\label{k5:tunnelEffekt}
+
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+\section{Transistoren - Kapitel 6}
+\subsection{Funktion von Bipolartransistoren}\label{k6:bipolar}
+\subsection{MOS-Inversion}\label{k6:mosInversion}
+
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+\section{Ohne Kapitel}
+\end{document}

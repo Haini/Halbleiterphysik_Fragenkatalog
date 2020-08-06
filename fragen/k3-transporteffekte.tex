@@ -1,0 +1,85 @@
+
+\subsection{Berechnung der Diffusionsspannung \todo{1x}}\label{k3:diffusion}
+Feldst\"arke (Poissongleichung) integrieren und die Skizzen von pn-\"Ubergang, elektrischer
+Feldst\"arke und Spannungsverlauf.
+
+\subsection{Alle Gleichungen (2x Stromgleichung, 2x Kontinuitätsgleichung, 1x Poisson-Gleichung) \todo{1x}}\label{k3:alleGleichungen}
+
+\subsection{Dotieren \todo{0x}}\label{k3:dotieren}
+
+\subsection{Verlauf der Ladungstr\"agerkonzentration als Funktion der Temperatur \todo{0x}}\label{k3:ladungstraegerkonz}
+
+\subsection{Drude Modell \todo{0x}}\label{k3:drude}
+
+\subsection{Hall-Effekt \todo{0x}}\label{k3:halleffekt}
+Metallplatte aufzeichnen mit Koordinatensystem und I, B, und F bzw. E als Vektoren.
+Kurz beschreiben was im p-HL und n-HL passiert.
+Erk\"aren warum der Strom nur in eine Richtung flie{\ss}en kann.
+
+\subsection{Hall-Spannung \todo{0x}}\label{k3:hallspannung}
+
+\subsection{Diffusionsstrom \todo{0x}}\label{k3:diffusionsstrom}
+
+\subsection{Stromgleichungen \todo{0x}}\label{k3:stromgleichungen}
+
+\subsection{Shockley-Haynes Experiment \todo{0x}}\label{k3:shockleyhaynes}
+    \subsubsection{Schlatung aufzeichnen} Oszi und Spannungsquelle nicht vergessen
+    \subsubsection{Kurve aufzeichnen und erkl\"aren was abgelesen werden kann}
+
+\subsection{Kontinuit\"atsgleichungen \todo{0x}}\label{k3:kontinuitaet}
+
+	\subsection{Intrinsische Ladungsträgerdichte $n_i$ + Gleichung $n \cdot p=n_i^2$ }
+	Die intrinsische Ladungsträgerdichte beschreibt die Eigenleitungsdichte eines Halbleiters. Sie bestimmt den Mindestwert der elektrischen Leitfähigkeit.  
+	Bei Halbleitern die auf den absoluten Nullpunkt gekühlt werden, sind alle Elektronen im Kristllgitter gebunden. Erst wenn die Temperatur erhöht wird, können Elektronen durch die nun zur Verfügung stehende thermische Energie vom Valenz- ins Leitungsband gehoben werden.
+	Durch Rekombination wandern die Elektronen vom Leitungsband wieder ins Valenzband, dabei wird Energie freigesetzt. 
+	Im thermodynamischen Gleichgewicht finden nun Rekombination und Generation von Elektronen statt. Diese sollten im Mittel gleich oft verkommen - um eben ein Gleichgewicht zu erhalten.
+	Das bedeutet auch, dass die \textit{Anzahldichte} von freien Elektronen im Mittel konstant ist. 
+	Die Eigenleitungsdichte $n_i$ setzt sich also aus der durchschnittlichen Anzahl an freien Elektronen $n$ und Löchern $p$ zusammen. Aufgrund des \textit{Massenwirkungsgesetzes}\footnote{Bei einer reversiblen Reaktion im chemischen Gleichgewicht hat der Quotient aus Ausgangsstoff (Elektron) und Reaktionsprodukt (Loch) einen festen charakteristischen Wert, auch Gleichgewichtskonstante genannt.} kann man schreiben:
+	\begin{equation}
+	    n_i^2 = n \cdot p
+	\end{equation}
+	Allerdings ist zu bedenken, dass sich die Eigenleitungsdichte massiv mit der Temperatur verändert, da durch die thermische Energie auch mehr Elektronen im Leitungsband zur Verfügung stehen - das ist auch der Grund warum dotierte Halbleiter ihre typischen Eigenschaften verlieren.
+	Zum Beispielt verdoppelt sich $n_i$ bei einem Anstieg von 300 Kelvin auf 310 Kelvin.
+	
+	Diesen Effekt kann man über folgende Formel beschreiben:
+	\begin{equation}
+	    n_i^2 = n \cdot p = N_C \cdot N_V e^{-\frac{E_C-E_V}{kT}}
+	\end{equation}\label{equ:eigenleitung}
+	
+	\begin{enumerate}
+	    \item $N_C$ ... Bandgewicht des \emph{Leitungsbandes}, also die Zahl der Zustände in $\Delta E$ der Breite kT
+	    \begin{enumerate}
+	        \item Das Bandgewicht steigt mit der effektiven Masse und mit der Temperatur.
+	        \item Höhere Temperatur bedeutet, dass mehr Zustände besetzt sind
+	        \item Basiert auf der \textbf{Elektronendichte} $n$
+	        \item Wikipedia nennt das die \textbf{Effektive Zustandsdichte} des Leitungsbands
+	    \end{enumerate}
+	    \item $N_V$ ... Bandgewicht des \emph{Valenzbandes}
+	    \begin{enumerate}
+	        \item Basiert auf der \textbf{Löcherdichte} $p$
+	        \item Wikipedia nennt das die \textbf{Effektive Zustandsdichte} des Valenzbandes
+	    \end{enumerate}
+	    \item $E_C$ ... Energie der Unterkante des Leitungsbandes
+	    \item $E_V$ ... Energie der Oberkante des Valenzbandes
+	    \item $k$ ... Boltzmannkonstante
+	\end{enumerate}
+	
+	\begin{enumerate}
+	    \item Typische Größen für $n_i$ bei Raumtemperatur (26 Grad, 300 Kelvin)
+	    \begin{enumerate}
+	        \item Silizium: $1.5 \cdot 10^{10} cm^{-3}$
+	        \item Germanium: $2.2 \cdot 10^{13} cm^{-3}$
+	    \end{enumerate}
+	\end{enumerate}
+	
+	\subsection{$n_i$ ist Funktion von was? (T und Gap)}
+    Wie man in \autoref{equ:eigenleitung} sieht, ist die Eigenleitungsdichte $n_i$ von der Temperatur T abhängig.
+    Die Temperaturabhängigkeit verringert sich wenn die Bandlücke, die sich aus $E_G = E_C - E_V$ ergibt, vergrößert. 
+    
+    Das macht Sinn, denn ein größerer Zähler aus \autoref{equ:eigenleitung} $e^{-\frac{E_G}{kT}}$ kaschiert Änderungen in der Temperatur besser.
+    
+    \subsubsection{Eigenleitung und Fermi-Niveau}
+    Es soll noch erwähnt werden, dass die Eigenleitung $n_i^2$ auch zur Berechnung des Fermi-Niveaus herangezogen werden kann.
+    Durch Lösen nach $n_i^2$ von \autoref{equ:eigenleitung} auf und einsetzen in andere Gleichungen kann man das Fermi-Niveau $E_F$ bestimmen bzw. auch zur Berechnung von \textit{p} und \textit{n} heranziehen. 
+    Grundaussage ist aber, dass $E_F$ bei Eigenleitung in der Mitte des verbotenen Bandes liegt.
+    

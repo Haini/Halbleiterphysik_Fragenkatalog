@@ -10,6 +10,8 @@
 \usepackage{float}
 \usepackage{amsmath}
 
+\usepackage[margin=0.75in]{geometry}
+
 \usepackage[disable]{todonotes}
 %use this line instaed to hide todo's
 %\usepackage[disable]{todonotes}
@@ -66,7 +68,7 @@ Frage                & 02.16 & 01.28 & 02.19 & 03.04 & 03.05 & 03.21 & 01.16 & K
 \ref{k1:schrGl} Schrödinger Gleichung&&&& X &  & X & X & X \\
 \ref{k1:ekdiag} e(k) Diagramm &&&&&&&& X \\
 \ref{k1:pottopf} Unendlich tiefer Potentialtopf & X &&&&&&& X \\
-\ref{k1:tunnEf} Tunneleffekt&&&&&&&X & \\
+\ref{k1:tunnEf} Tunneleffekt&&&& X &&&X & \\
 \ref{k2:metalle} Unterschied Halbleiter vs Metalle &&&&&&&& X\\
 \ref{k2:festkorper} Grund für Festkörperbildung & X &&&&&&& X\\
 \ref{k2:leitungsBand} Leitungsband, Valenzband, Ef aufzeichnen && X & X &&&&& \\
@@ -90,7 +92,6 @@ Frage                & 02.16 & 01.28 & 02.19 & 03.04 & 03.05 & 03.21 & 01.16 & K
 \ref{k5:pn} PN-\"Ubergang && X & X & X &X&X&& X \\
 \ref{k5:diode} Diodenkennlinie &&&&&&&& X \\
 \ref{k5:pnBand} Banddiagramm f\"ur PN ohne Spannung  && X &&&&&& \\
-\ref{k5:tunnelEffekt} Tunneln Allgemein&&&&& X &&& X\\
 \ref{k5:schottky} Schottky-Kontakt-Diode &&&&&&&& X \\
 \ref{k5:tunnelDiode} Tunneldiode&&& X && X & X & X & X \\
 \ref{k5:backward} Backward-Diode &&&&&&&& X \\
@@ -183,8 +184,54 @@ Der Compton-Effekt ist ein direkter Beweis, dass Photonen nicht nur die Energie 
 \input{fragen/k1-schrodingerGleichung}
 
 \subsection{e(k) Diagramm \todo{0x}}\label{k1:ekdiag}
+Das e(k) Diagramm beschreibt die Charakteristiken eines Halbleitermaterials. Abgebildet wird der Zusammenhang
+zwischen Energie und Impuls von Quantenmechanischen Zuständen.
+Ein Beispiel ist in \Cref{fig:ek} abgebildet.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{fig/ek}
+    \caption{Simples E-k Diagramm}
+    \label{fig:ek}
+\end{figure}
+Man sieht:
+\begin{itemize}
+    \item Die Bandlücke $E_G$
+    \item Die Effektive Masse anhand der Krümmung der beiden Kurven
+    \item Die Zustandsdichte anhand der Steigung der beiden Kurven
+\end{itemize}
 
 \subsection{Unendlich tiefer Potentialtopf \todo{1x}}\label{k1:pottopf}
+Der unendlich tiefe, rechteckige Potenzialtopf (\Cref{fig:pottopf}) ist ein sehr einfach zu lösender Spezialfall
+der Schrödingergleichung.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{fig/potentialtopf}
+    \caption{Unendlich tiefer Potentialtopf}
+    \label{fig:pottopf}
+\end{figure}
+Für die Schrödingergleichung
+\begin{equation}
+    \{-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} \}\varphi(x) = E \varphi(x)
+\end{equation}
+Außerhalb des Topfes: $V(x) = \infty \rightarrow \varphi = 0$\\
+Innterhalb des Topfes: $V(x) = 0$. Mit einfachem Lösungsansatz $\varphi (x) = A\cdot sin(kx)$ ergibt sich:
+\begin{equation}
+    E(k) = \hbar \omega = \frac{\hbar^2 k^2}{2m}
+\end{equation}
+Da die Lösung eine zusammenhängende Kurve sein muss muss an den Kanten des Topfes $\varphi(x=0) = \varphi(x=a) = 0$ gelten.
+Durch den Sinus im Lösungsansatz ist links bereits $\varphi(x=0) = 0$, die rechte Seite kann mit $k = \frac{n\pi}{a}$ erfüllt werden.\\
+Da $|\varphi(x)^2|$ der Wahrscheinlichkeit entspricht und diese über den ganzen Bereich $1$ ergeben muss, ergibt sich $A$ aus
+der entsprechenden Normierung der Wellenfunktion:
+\begin{equation}
+    \int_{-\infty}^{+\infty} |\varphi(x)^2| dx = 1
+\end{equation}
+Und damit
+\begin{equation}
+    \varphi(x) = \frac{2}{a}sin(\frac{n\pi x}{a})
+\end{equation}
+\begin{equation}
+    E_n = \frac{\hbar^2k_n^2}{2m} = \frac{\hbar^2\pi^2}{2ma^2}n^2
+\end{equation}
 
 \subsection{Tunnel-Effekt \todo{1x}}\label{k1:tunnEf}
 \begin{enumerate}
@@ -260,8 +307,239 @@ Jetzt kann man einige Überlegungen für die Amplituden anstellen:
 
 \section{Transistoren - Kapitel 6}\label{k6:transistoren}
 \input{fragen/k6-transistoren}
+
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
-\section{Ohne Kapitel}
+\newpage
+\section{Formelsammlung}
+
+Impuls ist Abhängig von der Wellenzahl $k$:
+\begin{equation}
+    p = \hbar \cdot k
+\end{equation}
+
+\hrule
+\vspace{0.5cm}
+\textbf{Compton Effekt} durch elastischen Stoß:
+
+\begin{enumerate}
+    \item $E_e$ ... kinetische Energie
+    \item $\vec{p_e}$ ... Impuls des Compton-Elektrons
+    \item $\vec{k}$ ... Wellenvektor, zeigt die Ausbreitungsrichtung des Photons
+\end{enumerate}
+
+\begin{equation}
+    \hbar \omega_0 = \hbar \cdot \omega_{SC} + E_e
+\end{equation}
+
+\begin{equation}
+    \hbar \vec{k_0} = \hbar \cdot \vec{k_{SC}} + \vec{p_e}
+\end{equation}
+
+Länge des Wellenvektors $\vec{k}$, zeigt in die Ausbreitungsrichtung des Photons
+\begin{equation}
+    |\vec{k}| = \frac{2\pi}{\lambda}
+\end{equation}
+
+Impuls einen Photons:
+\begin{equation}
+    |\hbar \vec{k}| = \frac{h}{\lambda}
+\end{equation}
+
+Energie eines Photons:
+\begin{equation}
+   E = \hbar \omega 
+\end{equation}
+
+\hrule
+\vspace{0.5cm}
+
+\textbf{Materiewellen} nach De Broglie - die Wellenlänge hängt nur vom Teilchenimpuls ab:
+\begin{equation}
+    \lambda = \frac{h}{p}
+\end{equation}
+
+\hrule
+\vspace{0.5cm}
+
+(Kinetische???) Energie ist Abhängig vom Impuls und der Masse:
+\begin{equation}
+    E = \frac{p^2}{2m}
+\end{equation}
+
+Ansatz für eine planare, zeitabhängige Welle:
+\begin{equation}
+    \varphi(x,t) = A * e^{-i(kx+\omega t)}
+\end{equation}
+
+Harmonische Welle, k ist fürs erste ein Faktor, der das Argument des Sinus dimensionslos macht:
+\begin{equation}
+    \Psi(x,t) = A * sin(x,t) = A \cdot sin(k\cdot x - k \cdot v \cdot t)
+\end{equation}
+
+\hrule
+\vspace{0.5cm}
+
+\textbf{Dispersionsrelation} $\omega(k)$
+
+Zusammenhang zwischen Zeitlicher Periodizität $v$ und räumlicher Periodizität $\lambda$ durch $\omega(k)$:
+
+\begin{equation}
+    \omega = 2\pi v
+\end{equation}
+
+\begin{equation}
+    k = \frac{2\pi}{\lambda}
+\end{equation}
+\hrule
+\vspace{0.5cm}
+
+\textbf{Dispersionsrelation in der Teilchenphysik} $\omega(k)$
+
+Frequenz steht im Zusammenhang mit der Energie:
+\begin{equation}
+    \omega = \frac{E}{\hbar}
+\end{equation}
+
+Wellenvektor steht im Zusammenhang mit dem Impuls:
+\begin{equation}
+    k = \frac{p}{\hbar}
+\end{equation}
+
+Energie-Impuls Beziehung der Teilchenphysik wird entsprechend als \textit{Dispersionrelation} bezeichnet.
+
+Für freie Elektronen im nicht-relativistischen Fall zum Beispiel:
+\begin{equation}
+    E = \frac{p^2}{2m}
+\end{equation}
+
+\begin{equation}
+    \hbar \omega = \frac{k^2\cdot \hbar^2}{2m}
+\end{equation}
+\begin{equation}
+    \omega = \frac{k^2\cdot \hbar}{2m}
+\end{equation}
+
+\hrule
+\vspace{0.5cm}
+
+\textbf{Schrödingergleichung, kräftefreies Teilchen, eine Dimension, zeitabhängig}
+
+Für ein kräftefreies Teilchen in einer Dimension (also konstante Energie). 
+
+\begin{equation}
+-\frac{\hbar}{2m} \frac{\partial^2}{\partial x^2}\Psi(x,t) = i\hbar\frac{\partial}{\partial t} \Psi(x,t)
+\end{equation}
+
+\begin{enumerate}
+    \item \textit{Klassisches Teilchen:} Geradlinige und gleichförmige Fortbewegung.
+    \item \textit{Wellenbild Teilchen:} Einfachste Form ist eine laufende Welle.
+    \item Wellen dieser Form sind Lösungen einer linearen Differentialgleichung zweiter Ordnung (der \textit{Bewegungsgleichung})
+    \item \textit{Bewegugnsgleichung}: Beschreibt räumliche und zeitliche Entwicklung eines mechanischen Systems vollständig.
+    \item Lösung der Bewegungsgleichung ist die Trajektorie, auf der sich das System bewegt. 
+\end{enumerate}
+
+\begin{equation}
+   \Psi(x,t) = e^{-i(kx + \omega t)}
+\end{equation}
+
+\textbf{Drei Bedingungen} die erfüllt sein müssen:
+
+\begin{enumerate}
+    \item Energie muss direkt proportional zur Frequenz sein
+    \item Impuls muss direkt proportional zur Wellenzahl $k$ sein
+    \item Kinetische Energie muss mit dem Impuls zusammenhängen
+\end{enumerate}
+
+\begin{equation}
+   E = \hbar \cdot \omega 
+   \quad\text{und}\quad
+   p = \hbar \cdot k 
+   \quad\text{und}\quad
+   E_{kin} = \frac{p^2}{2m}  
+\end{equation}
+
+\hrule
+\vspace{0.5cm}
+\textbf{Schrödingergleichung, externe Kraft, eine Dimension, zeitabhängig}. 
+
+Es wirkt zum Beispiel ein externes Feld auf das Teilchen. 
+
+\begin{equation}
+    -\frac{\hbar}{2m}\frac{\partial^2x}{\partial x^2}\Psi(x, t) + V(x,t) = i\hbar \frac{\partial }{\partial t}\Psi(x,t)
+\end{equation}
+
+\hrule
+\vspace{0.5cm}
+\textbf{Schrödingergleichung, stationär}. 
+Siehe auch unendlich tiefer Potentialtopf
+
+\begin{equation}
+    -\frac{\hbar}{2m}\Psi(x) = i\hbar \Psi(x)
+\end{equation}
+
+\hrule
+\vspace{0.5cm}
+\textbf{Schrödingergleichung}, Mehrdimensional 
+
+\begin{equation}
+    -\frac{\hbar}{2m}\Delta\Psi(\vec{x}, t) + V(\vec{x},t) = i\hbar \frac{\partial }{\partial t}\Psi(\vec{x},t)
+\end{equation}
+
+\begin{equation}
+    \Delta = \frac{\partial^2x}{\partial x^2} +\frac{\partial^2y}{\partial y^2} +\frac{\partial^2z}{\partial z^2}
+\end{equation}
+
+\hrule
+\vspace{0.5cm}
+\textbf{Schrödingergleichung}, Wahrscheinlichkeitsverteilung für den Aufenthaltsort des Teilchens.
+
+\begin{equation}
+    |\Psi(x,t)|^2
+\end{equation}
+
+\hrule
+\vspace{0.5cm}
+\textbf{Schrödingergleichung}, normierte Wellenfunktion zur statistischen Interpretation.
+
+\begin{equation}
+    \int_{\mathbb{R}^3} |\Psi(\vec{x},t)|^2 d^3\vec{x} = 1
+\end{equation}
+
+Sagt aus, dass das Teilchen auf jeden Fall \textit{irgendwo} im Raum zu finden ist.
+Erhält man \textit{normierte} Lösungen, dann entspricht $|\Psi(x,t)|^2$ der \textit{Aufenthaltswahrscheinlichkeitsdichte}.
+Nicht jede Lösung der Schrödingergleichung ist normierbar. 
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+\textbf{Kinetische Energie und Impuls:}
+\begin{equation}
+   E_{Kin} = \frac{mv^2}{2} 
+\end{equation}
+\begin{equation}
+    p = mv
+\end{equation}
+$p$ auf $v$ umstellen und in $E_{Kin}$ einsetzen:
+\begin{equation}
+   E_{Kin} = \frac{m(\frac{p}{m})^2}{2} = \frac{p^2}{2m}
+\end{equation}
+\hrule
+\vspace{0.5cm}
+\textbf{Austrittsarbeit}, die Energiedifferenz zwischen dem Fermi-Nivau und dem Vakuum-Niveau in einem Halbleiter.
+\begin{equation}
+W = \Phi_V - \Phi_F
+\end{equation}
+
+im Kontext des Photoeffekts: Ein Photon muss mindestens die Frequenz (und damit Energie) $f_g$ haben um ein Elektron freizusetzen. 
+
+\begin{equation}
+W = h \cdot f_g    
+\end{equation}
+
+\hrule
+\vspace{0.5cm}
+\textbf{Fermi-Niveau}, gibt die höchste Energie an, die ein Teilchen haben kann wenn sich das System als ganzes im Grundzustand befindet.
+Hat zwar eine Formel, aber die ist super kompliziert und nicht nützlich. 
 \end{document}

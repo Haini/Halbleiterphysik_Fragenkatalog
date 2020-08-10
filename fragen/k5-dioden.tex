@@ -1,7 +1,7 @@
 
 \subsection{PN-Übergang \todo{5x}}\label{k5:pn}
     
-    \subsubsection{Raumladungszone}
+    \subsubsection{Raumladungszone}\label{k5:rlz}
 	Elektronen aus dem \textit{n}-dotierten Bereich diffundieren zum \textit{p}-dotierten Bereich was zu einer Elektronenverarmung der \textit{n}-seitigen Randzone führt. 
 	Dadurch wird die \textit{n} Seite positiv aufgeladen. Umgekehrt kommt es zu einer Löcherverarmung auf der \textit{p} Seite und somit zu einer negativen Aufladung dort. 
     Dadurch entsteht am Übergang eine hochohmige Verarmungszone, die sogenannte \textit{Raumladungszone} (RLZ).
@@ -160,7 +160,8 @@ Durch die Polung in Durchlassrichtung treibt die äußere Spannung sowohl die El
     Siehe \Cref{k3:kontinuitaet}.
 
 \subsection{Banddiagramm für PN ohne Spannung \todo{1x}}\label{k5:pnBand}
-\begin{figure}
+Siehe \Cref{fig:pn-banddiagramm}.
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.66\textwidth]{fig/pn-bandstruktur.jpg}
     \caption{Formation eines pn-Übergangs. a Die p- und n-Gebiete vor der Formation des Über-
@@ -179,17 +180,11 @@ lenzband und Leitungsband verlaufen immer parallel.}
     \label{fig:pn-banddiagramm}
 \end{figure}
 
-
-
-\subsection{Tunneleffekt \todo{1x}}\label{k5:tunnelEffekt}
-    \subsubsection{Flussspannung}
-    \subsubsection{Energieerhaltung}
-    \subsubsection{Endliche Barriere}
-    \subsubsection{Einfaches Tunneln}
-
 \subsection{Schottky-Kontakt-Diode \todo{0x}}\label{k5:schottky}
 Schottky-Dioden werden aus einem Metall-Halbleiter Kontakt gebaut. Dies geschieht implizit bei jedem Kontakt von Transistoren und Dioden und hat dementsprechend hohe Wichtigkeit.
-
+Die Schottky-Diode besteht aus einer Metall-Schicht und z.B. einer n-leitenden Silizium-Schicht. Die Elektronen der n-Schicht wandern zur Metallschicht. Weil Elektronen leichter aus n-Silizium in die Metallschicht gelangen als umgekehrt, entsteht in der Silizium-Schicht ein an Elektronen verarmter Bereich, die sogenannte Schottky-Sperrschicht. Durch die Ladungsträgerdiffusion entsteht eine Raumladungszone (Sperrschicht) und ein elektrisches Feld. Ab einem bestimmten Zustand ist das elektrische Feld so groß, dass keine Elektronen mehr wandern.
+Schaltet man die Schottky-Diode in Sperrrichtung - Plus an n-Silizium und Minus an die Metallschicht - dann wird die Raumladungszone größer. Sie nimmt einen großen Bereich des n-Siliziums ein. Schaltet man die Schottky-Diode in Durchlassrichtung, wird die Raumladungszone freigeräumt. Die Elektronen fließen von der n-Schicht in die Metallschicht.
+Das Schalten vom Durchlasszustand in den Sperrzustand bzw. umgekehrt erfolgt sehr schnell. Es müssen keine Minderheitsladungsträger ausgeräumt werden. Der Strom durch die Schottky-Diode besteht daher nur aus Elektronen.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.75\textwidth]{fig/baenderSchottky}
@@ -264,3 +259,33 @@ Die starke Nichtlinearit\"at wird zur Gleichrichtung schwacher Signale und zur M
 genutzt.
 
 \subsection{Heterostrukturen \todo{0x}}\label{k5:heterostrukturen}
+
+Zwei Halbleiter aus verschiedenen Materialien (z.B. GaAs und AlAs) nennt man Heterostrukturen.
+Dies funktioniert nur wenn die Gitterkonstante ähnlich ist, die Bandlücken und Elektronenaffinitäten der beiden
+Materialien können aber sehr verschieden sein.
+Ähnlich zum pn-Übergang kommt es zum angleichen der Fermi-Niveaus und zu Band-Bending.
+Da die Bandbreiten und Elektronenaffinitäten aber unterschiedlich sind, kommt es zu diskontinuitäten am Übergang
+(\Cref{fig:heteroBand}).
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fig/heteroBand}
+    \caption{Banddiagramm einer Heterostruktur}
+    \label{fig:heteroBand}
+\end{figure}
+
+Man unterscheidet Typ-I und Typ-II Heterostrukturen (\Cref{fig:heteroUnterschied}).
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fig/heteroUnterschied}
+    \caption{Typ-I und Typ-II Heterostrukturen}
+    \label{fig:heteroUnterschied}
+\end{figure}
+
+Heterostrukturen haben ideale Eigenschaften für optische Anwendungen.
+Der Trick dabei ist, dass die Elektronen und Löcher in den vom GaAs
+gebildeten Potentialtopf fallen und dort nicht wieder herauskommen. Auf diese
+Weise erzwingt man lokal hohe Trägerdichten und damit eine hohe strahlende
+Rekombinationsrate. Bei passenden äußeren optischen Bedingungen lässt sich
+so auf einfache Weise eine Laseraktivität erzeugen.
+Weitere Anwendungsbereiche: Kamerachips, schnelle GaAs-AlGaAs Feldeffekttransistoren,
+Silizium Hetero-Bipolar-Transistor (höhere Geschwindigkeiten und bessere Stromverstärkung).

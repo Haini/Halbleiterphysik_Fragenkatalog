@@ -1,20 +1,92 @@
 
 \subsection{Berechnung der Diffusionsspannung \todo{1x}}\label{k3:diffusion}
 Feldst\"arke (Poissongleichung) integrieren und die Skizzen von pn-\"Ubergang, elektrischer
-Feldst\"arke und Spannungsverlauf.
+Feldst\"arke und Spannungsverlauf.\\
+Siehe \Cref{k5:rlz}.
 
 \subsection{Alle Gleichungen (2x Stromgleichung, 2x Kontinuitätsgleichung, 1x Poisson-Gleichung) \todo{1x}}\label{k3:alleGleichungen}
 
 \subsection{Dotieren \todo{0x}}\label{k3:dotieren}
+Dotieren beschreibt den gezielten einbau von Fremdatomen um Ladungstr\"ager zu erzeugen, wodurch die Leitf\"ahigkeit eines
+Halbleiters ver\"andert wird. Es kommt zu einer unterschiedlichen Konzentration aus Elektronen bzw. L\"ochern und es wird
+nun von einem extrinsischem Halbleiter gesprochen.\\
+Durch Dotierung werden Energieniveaus im verbotenen Band erzeugt. Ein Fremdatom aus der 5. Spalte des periodischen Systems
+der Elemente wie z.B. P, As oder Sb erzeugt ein Energieniveau in der unmittelbaren Nachbarschaft der Unterkante $E_C$ des
+Leitungsbandes. Dieses Energieniveau entsteht dadurch, dass das 5.Valenzelektron der äußersten Schale nicht an der
+Bindung im Kristallgitter teilnimmt. Deshalb kann dieses Elektron bereits durch geringfügige Energiezufuhr vom oatierungsatom
+abgelöst und in das Leitungsband gehoben werden, wo es sich als Leitungselektron frei bewegt.
+Allerdings bleibt zufolge der Ablösung des negativen Elektrons am Dotieratom eine ortsfeste positive Ladung übrig. Die
+Ladungen der Dotieratome können selbstverständlich nicht zum Stromtransport beitragen, spielen aber eine wichtige Rolle in
+Halbleiterbauelementen.\\
+Man nennt einen mit Akzeptoren dotierten Halbleiter kurz p-Halbleiter, den mit Donatoren dotierten n-Halbleiter.
 
 \subsection{Verlauf der Ladungstr\"agerkonzentration als Funktion der Temperatur \todo{0x}}\label{k3:ladungstraegerkonz}
+\Cref{fig:fermi}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{fig/fermi}
+    \caption{Ladungstr\"agerkonzentration bei verschiedenen Temperaturen (\Cref{fig:fermi})}
+    \label{fig:fermi2}
+\end{figure}
 
 \subsection{Drude Modell \todo{0x}}\label{k3:drude}
+
+Das Drude Modell ist eine klassische Beschreibung des Ladungstransports durch ein externes elektrisches Feld in Metallen.
+
+Im Drude-Modell wird ein elektrischer Leiter als Ionenkristall betrachtet, in dem sich die Elektronen frei bewegen können, ein Elektronengas bilden und so verantwortlich für die Stromleitung sind. Der Begriff Elektronengas rührt von der Ähnlichkeit dieser Theorie zur kinetischen Gastheorie her: herrscht im Inneren des Leiters nämlich kein elektrisches Feld, so verhalten sich die Elektronen wie Gasteilchen in einem Behälter.
+
+Durch ein äußeres elektrisches Feld $\vec {E}$ erfahren die freien Elektronen im Leiter eine Kraftwirkung $F_{el} = q \cdot E$ und werden beschleunigt, jedoch nicht kontinuierlich. Wäre dies so, dann dürften der Widerstand und die Stromstärke nicht konstant sein und das ohmsche Gesetz würde somit nicht gelten. Nach kurzer Zeit stellt sich jedoch ein Gleichgewicht ein, bei dem die mittlere Geschwindigkeit des Elektrons und damit der elektrische Strom proportional zur Feldstärke ist.
+
+Dies wird vom Drude-Modell dadurch erklärt, dass das Elektron mit einem Gitterion zusammenstößt und abgebremst wird. Dieser Vorgang wird phänomenologisch durch eine mittlere Stoßzeit $\tau$ zwischen zwei Kollisionen beschrieben. Mit steigender Temperatur sinkt die mittlere Stoßzeit und damit auch die elektrische Leitfähigkeit der Metalle.
+
+Die Bewegungsgleichung hierfür lautet:
+\begin{equation}
+    m \dot v + \frac{m}{\tau} v_D = -eE
+\end{equation}
+mit
+\begin{itemize}
+    \item $m$ der Elektronenmasse
+    \item $v$ der Elektronengeschwindigkeit
+    \item $v_D$ der Driftgeschwindigkeit (e-Geschwindigkeit abzüglich der thermischen Geschwindigkeit) und
+    \item $\tau$ der Stoßzeit
+    \item $e$ der Elementarladung.
+\end{itemize}
+Für den stationären Zustand $\dot v=0$ gilt:
+\begin{equation}
+    v_D = -\frac{e\cdot \tau}{m}E
+\end{equation}
+Mit der Ladungsträgerdichte $n$ n ergibt sich die Stromdichte $j$ damit zu:
+\begin{equation}
+    j = -e \cdot n \cdot v_D = \frac{e^2 \cdot \tau \cdot n}{m}E
+\end{equation}
+Die Leitfähigkeit $\sigma$ ist daher:
+\begin{equation}
+    \sigma = \frac{j}{E} = \frac{e^2 \cdot \tau \cdot n}{m}
+\end{equation}
+
+Diese Gleichung wird auch als Drude-Formel oder Drude-Leitfähigkeit bezeichnet. 
 
 \subsection{Hall-Effekt \todo{0x}}\label{k3:halleffekt}
 Metallplatte aufzeichnen mit Koordinatensystem und I, B, und F bzw. E als Vektoren.
 Kurz beschreiben was im p-HL und n-HL passiert.
 Erk\"aren warum der Strom nur in eine Richtung flie{\ss}en kann.
+
+Hall Effekt wird verwendet um Magnetfelder oder Ladungsträgerart (Elektronen oder L\"ocher) und deren Dichte zu bestimmen.
+Eine Metallplatte unter spannung wird in des Magnetfeld gestellt.
+Das Magnetfeld bewirkt durch die Lorentzkraft eine ablekung der Elektronen senkrecht zur technischen Stromrichtung.
+Es kommt zu einer Ladungstrennung (Elektronen und Löcher werden getrennt), die zu einem elektrischen Feld führt (entgegen der
+Lorentzkraft). Die so entstandene Spannung lässt sich leicht abgreifen und dadurch kann man das Magnetfeld bestimmen
+(\Cref{fig:hall}).
+
+Die Hall-Spannung folgt Strom- und Magnetfeldänderungen in der Regel unmittelbar. Sie steigt mit dem Magnetfeld linear an und ist antiproportional zur (vorzeichenbehafteten) Ladungsträgerdichte[1], da eine geringere Anzahl von Ladungsträgern nur bei höherer Geschwindigkeit der Einzelladungen zu einer unveränderten Stromstärke führen kann. Auf die schnelleren Ladungsträger wirkt eine höhere Lorentz-Kraft, wodurch die Hall-Spannung größer wird. Da die Ladungsträgerdichte in Halbleitern bedeutend kleiner ist als in Metallen, werden vorwiegend Halbleiter als Hall-Sonden benutzt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{fig/hall}
+    \caption{Aufbau Hall-Effekt}
+    \label{fig:hall}
+\end{figure}
 
 \subsection{Hall-Spannung \todo{0x}}\label{k3:hallspannung}
 

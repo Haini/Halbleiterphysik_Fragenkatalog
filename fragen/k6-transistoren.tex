@@ -103,12 +103,33 @@ Die folgenden Beschreibungen gelten immer für den npn Transistor (\autoref{fig:
 
 \subsection{Diffusions-Dreieck beim Transistor \todo{0x}}\label{k6:diffusionsdreieck}
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.33\textwidth]{fig/transistor-diffusionsdreieck.jpg}
+        \caption{Diffusionsdreieck }
+        \label{fig:transistor-diffusionsdreieck}
+    \end{figure}
+
+In einer homogen dotierten Basis tritt ein reiner Diffusionsstrom auf:
+
+\begin{equation}
+    J_n = eD_n\frac{dn_p}{dx} = const.
+\end{equation}
+
+Da $e$ und $D_n$ beides Konstanten sind muss auch $\frac{dn_p}{dx}$ konstant sein, was heißt dass $n_p(x)$ linear vom Ort abhängt.
+Die Gerade, die dabei entsteht fällt dann vom Emitter zum Kollektor hin linear ab - es entsteht also ein Dreieck welches \textit{Diffusionsdreieck} genannt wird. 
+
+\begin{enumerate}
+    \item $J_n$ ... Stromdichte
+    \item $D_n$ ... Diffusionskonstante für Elektronen;-;-
+\end{enumerate}
+
 \autoref{fig:npnTransistorKennlinie}
     \subsubsection{Warum fast linear?} exponential-Funktion im Ursprung ann\"ahernd linear
     \subsubsection{Was w\"are wenn die Basisl\"ange gr\"o{\ss}er als die Diffusionsl\"ange w\"are?} Man h\"atte die Wirkung von 2 Dioden und keinen Transistoreffekt mehr.
 
 \subsection{Feldeffekt-Transistor \todo{0x}}\label{k6:fet}
-
+Siehe JFET, MOSFET und MESFET.
 
 \subsection{MOS-FET \todo{0x}}\label{k6:mosfet}
 
@@ -188,7 +209,7 @@ Hier kurz für p-dotiertes Silizium:
     
     \begin{enumerate}
         \item $\Phi_S$: Austrittsarbeit (Abstand vom Fermi-Niveau zum Vakuum) im Halbleiter
-        \item $\Xi$ Energieabstand zwischen Leitungsband un dVakuum
+        \item $\xi$ Energieabstand zwischen Leitungsband un dVakuum
         \item $\Phi_B^n = \frac{kT}{e}ln(\frac{N_D}{n_i})$: Abstand zwischen Fermi-Niveau und Leitungsband im n-Typ-Halbleiter
         \item $\Psi(z) = \Phi(z) - \Phi_B$ Bandverbiegung
         \item $V_{FB}$: Flachbandspannung: Extern angelegte Spannung, bei der es keine Bandverbiegungen im Halbleiter gibt. 
@@ -204,6 +225,27 @@ Hier kurz für p-dotiertes Silizium:
     
 
 \subsection{MES-FET \todo{0x}}\label{k6:mesfet}
+
+Der MES-FET (\textbf{ME}tall-\textbf{S}eminconductor) (\autoref{fig:mesfet-aufbau} ist in seiner Wirkunsweise mit dem JFET eng verwandt: Wie beim JFET wird die Breite des leitenden Kanals durch die Raumladungszone einer in Sperrichtung gepolten Diode gesteuert. An die Stelle des \textit{pn} Übergangs am Gate tritt jedoch ein Metall-Halbleiter Übergang (Schottky-Kontakt). 
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.66\textwidth]{fig/mesfet-on-off.png}
+        \caption{Aufbau eines MESFETs. Wird eine Spannung angelegt, dann sperrt er (rechts).}
+        \label{fig:mesfet-aufbau}
+    \end{figure}
+    
+\textbf{Vorteil gegenüber MOSFET}
+\begin{enumerate}
+    \item Sehr hohe Grenzfrequenz (bis 50GHz), da die einfache Herstellung kurze sehr Gates erlaubt
+    \item Braucht kein isolierendes Oxid am Gate, daher kann das bessere GaAs verwendet werden
+\end{enumerate}
+
+\textbf{Nachteile gegenüber MOSFET}
+\begin{enumerate}
+    \item Sehr schwer, selbstsperrende Typen herzusellen
+    \item Daher hoher Leistungsbedarf
+\end{enumerate}
 
 \subsection{Early-Effekt \todo{0x}}\label{k6:early}
 Eine kleine Abhängigkeit des Kollektorstromes von $U_{CB}$ wird durch den sogenannten
@@ -234,12 +276,35 @@ Daraus folgend müssen mehr Elektronen über den Kollektor fließen, der Strom e
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.66\textwidth]{fig/jfet-aufbau.jpg}
+        \includegraphics[width=0.33\textwidth]{fig/jfet-aufbau.jpg}
         \caption{Aufbau eines Sperrschichtfeldeffekt Transistors (JFET - \textbf{J}unction \textbf{F}ield \textbf{E}ffect \textbf{T}ransistor)}
         \label{fig:jfet-aufbau}
     \end{figure}
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.33\textwidth]{fig/jfet-open}
+        \caption{Aufbau eines Sperrschichtfeldeffekt Transistors (JFET - \textbf{J}unction \textbf{F}ield \textbf{E}ffect \textbf{T}ransistor)}
+        \label{fig:jfet-aufbau}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.33\textwidth]{fig/jfet-pinch-off}
+        \caption{JFET im Sperrzustand}
+        \label{fig:jfet-sperre}
+    \end{figure}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.33\textwidth]{fig/jfet-operating-areas}
+        \caption{JFET Kennlinie}
+        \label{fig:jfet-kennlinie}
+    \end{figure}
+    
 In \autoref{fig:jfet-aufbau} ist der Aufbau eines n-Kanal Sperrschicht-Feld Effekt Transistors zu sehen. 
+
+\textbf{Analogie Gartenschlauch:} Der JFET ist leitend solange keine Spannung am Gate anliegt (solange niemand auf dem Schlauch steht). Der Stromfluss kann kontrolliert werden indem man die Spannung am Gate variiert (bzw. fester und weniger fest auf den Schlauch drückt). Durch das Anlegen der Spannung wird die Raumladungszone variiert. 
 
 Im Transistor befindet sich ein n-leitender Kanal, durch den Elektronen von der Source Elektrode S zur Drain Elektrode D fließen können, wenn $U_{DS} > 0$ ist (Drain-Source Spannung).
 
